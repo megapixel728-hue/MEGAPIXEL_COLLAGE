@@ -1,0 +1,779 @@
+/* MEGAPIXEL — Diseño adaptable para escritorio, laptop, tablet y móvil.
+   Este archivo se carga DESPUÉS de style.css en todas las páginas. */
+*,*::before,*::after {
+    box-sizing:border-box
+}
+html {
+    max-width:100%;
+    scroll-padding-top:90px
+}
+body {
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden
+}
+img,video,iframe {
+    max-width:100%
+}
+img {
+    height:auto
+}
+.section {
+    padding-left:clamp(18px,5vw,90px);
+    padding-right:clamp(18px,5vw,90px)
+}
+.header {
+    gap:18px
+}
+.header a.logo {
+    flex-shrink:0
+}
+.header-brand-image {
+    object-fit:contain;
+    object-position:left center
+}
+.nav {
+    min-width:0;
+    gap:clamp(12px,2vw,32px)
+}
+.nav a {
+    white-space:nowrap
+}
+.portfolio-grid,.works-grid,.real-gallery-grid,.contact-social-grid {
+    min-width:1
+}
+.portfolio-grid>* ,.works-grid>*,.real-gallery-grid>*,.contact-social-grid>* {
+    min-width:0
+}
+.portfolio-link .photo-category,.portfolio-image,.work-photo {
+    overflow:hidden
+}
+.portfolio-link .photo-category img,.work-photo img,.photo-slide img {
+    width:100%;
+    height:100%;
+    object-fit:cover
+}
+.photo-carousel {
+    width:100%;
+    max-width:100%
+}
+.slide-caption h3,.page-hero h1,.hero h1,.big-title {
+    overflow-wrap:break-word
+}
+.contact-big-number {
+    overflow-wrap:anywhere
+}
+/* Monitores grandes */
+@media(min-width:1600px) {
+    .header,.section,.page-hero,.hero,.footer {
+        padding-left:max(6%,calc((100vw - 1600px)/2));
+        padding-right:max(6%,calc((100vw - 1600px)/2))
+    }
+    .portfolio-grid,.works-grid {
+        gap:32px
+    }
+    .photo-carousel {
+        max-height:760px
+    }
+}
+/* Laptops y tablets horizontales */
+@media(max-width:1199px) {
+    .header {
+        padding-left:3%;
+        padding-right:3%
+    }
+    .header-brand-image {
+        width:132px;
+        height:65px
+    }
+    .nav {
+        gap:14px
+    }
+    .nav a {
+        font-size:10px;
+        letter-spacing:.6px
+    }
+    .contact-layout {
+        gap:35px
+    }
+    .portfolio-grid {
+        gap:28px
+    }
+    .portfolio-link .photo-category {
+        height:300px
+    }
+}
+/* Tablets y teléfonos: menú desplegable */
+@media(max-width:980px) {
+    .header {
+        height:76px;
+        padding:0 24px
+    }
+    .header.scrolled {
+        height:70px
+    }
+    .header-brand-image {
+        width:130px;
+        height:66px
+    }
+    .menu-button {
+        display:block;
+        flex-shrink:0;
+        z-index:2002
+    }
+    .nav {
+        position:fixed;
+        inset:0;
+        width:100%;
+        height:100vh;
+        height:100dvh;
+        padding:105px 24px 40px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        gap:24px;
+        background:#080c10;
+        z-index:2001;
+        overflow-y:auto;
+        transform:translateX(105%);
+        transition:transform .35s ease;
+        visibility:hidden
+    }
+    .nav.active {
+        transform:translateX(0);
+        visibility:visible
+    }
+    .nav a {
+        font-size:clamp(17px,3vw,27px);
+        letter-spacing:1px;
+        text-align:center;
+        white-space:normal;
+        line-height:1.4
+    }
+    .two-columns,.contact-layout,.decoration-card {
+        grid-template-columns:1fr;
+        gap:28px
+    }
+    .decoration-card:nth-of-type(even) .decoration-image {
+        order:0
+    }
+    .portfolio-grid,.works-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:24px
+    }
+    .real-gallery-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr))
+    }
+    .hero h1 {
+        letter-spacing:-.04em
+    }
+    .page-hero h1 {
+        letter-spacing:-.04em
+    }
+    .contact-social {
+        margin-top:70px
+    }
+}
+/* Tablets verticales */
+@media(max-width:768px) {
+    .section {
+        padding:75px 22px
+    }
+    .hero {
+        min-height:85svh;
+        padding:120px 22px 70px
+    }
+    .hero h1 {
+        font-size:clamp(48px,12vw,95px);
+        line-height:.95
+    }
+    
+   .page-hero h1 {
+      font-size: clamp(36px, 9vw, 65px);
+      line-height: 1;
+      letter-spacing: -3px;
+   }
+
+    .big-title {
+        font-size:clamp(40px,10vw,78px);
+        letter-spacing:-.04em
+    }
+    .hero-footer,.carousel-heading {
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px
+    }
+    .portfolio-grid,.works-grid,.real-gallery-grid,.contact-social-grid {
+        grid-template-columns:1fr;
+        gap:22px
+    }
+    .portfolio-link .photo-category {
+        height:clamp(230px,60vw,390px)
+    }
+    .work-photo {
+        height:clamp(220px,60vw,350px)
+    }
+    .photo-carousel {
+        height:clamp(300px,70vw,470px)
+    }
+    .slide-caption {
+        left:15%;
+        right:15%;
+        bottom:55px
+    }
+    .slide-caption h3 {
+        font-size:clamp(24px,6vw,42px)
+    }
+    .carousel-arrow {
+        width:40px;
+        height:40px;
+        font-size:25px
+    }
+    .carousel-arrow.prev {
+        left:8px
+    }
+    .carousel-arrow.next {
+        right:8px
+    }
+    .filters {
+        gap:10px;
+        margin-bottom:28px
+    }
+    .filter {
+        padding:12px 14px;
+        min-height:42px
+    }
+    .decoration-card {
+        padding:30px 0
+    }
+    .decoration-image {
+        min-height:200px
+    }
+    .decoration-info h3 {
+        font-size:clamp(23px,6vw,32px)
+    }
+    .contact-original-box {
+        padding:26px 20px
+    }
+    .contact-big-number {
+        font-size:clamp(25px,7vw,50px)
+    }
+    .contact-social-grid a {
+        padding:24px
+    }
+    .contact-form {
+        padding:26px 18px
+    }
+    .footer {
+        padding:55px 22px 28px
+    }
+    .footer-line {
+        flex-direction:column;
+        align-items:flex-start;
+        gap:14px
+    }
+    .footer-logo-image {
+        max-width:min(280px,78vw)
+    }
+}
+/* Teléfonos pequeños */
+@media(max-width:420px) {
+    .header {
+        padding:0 15px
+    }
+    .header-brand-image {
+        width:112px;
+        height:58px
+    }
+    
+.page-hero {
+    min-height: 35vh;
+    padding: 105px 16px 35px;
+}
+
+    .page-hero {
+        padding:120px 16px 60px
+    }
+    
+.page-hero h1 {
+    font-size: clamp(28px, 8.5vw, 45px);
+    letter-spacing: -1px;
+}
+
+    .hero h1 {
+        font-size:clamp(40px,12vw,60px)
+    }
+    .page-hero h1 {
+        font-size:clamp(20px,12vw,62px)
+    }
+    .eyebrow,.section-label {
+        letter-spacing:2px;
+        line-height:1.6
+    }
+    .portfolio-link .photo-category {
+        height:225px
+    }
+    .work-photo {
+        height:225px
+    }
+    .photo-carousel {
+        height:340px
+    }
+    .slide-caption {
+        left:16%;
+        right:16%;
+        bottom:60px
+    }
+    .slide-caption h3 {
+        font-size:25px
+    }
+    .filter {
+        font-size:9px;
+        padding:10px
+    }
+    .gallery-caption {
+        padding:18px
+    }
+    .contact-whatsapp {
+        width:100%;
+        text-align:center;
+        padding:17px 12px
+    }
+}
+/* Accesibilidad y dispositivos táctiles */
+@media(hover:none) {
+    .portfolio-link:hover,.portfolio-card:hover .portfolio-image {
+        transform:none
+    }
+    .nav a,.filter,.carousel-arrow,.carousel-dots button {
+        touch-action:manipulation
+    }
+}
+@media(prefers-reduced-motion:reduce) {
+    *,*::before,*::after {
+        scroll-behavior:auto!important;
+        animation-duration:.01ms!important;
+        transition-duration:.01ms!important
+    }
+    .reveal {
+        opacity:1!important;
+        transform:none!important
+    }
+}
+/* Galerías para tablets y teléfonos */
+@media(max-width:900px) {
+    .works-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:18px
+    }
+}
+@media(max-width:700px) {
+    .works-grid {
+        grid-template-columns:1fr
+    }
+    .work-images {
+        grid-template-columns:repeat(2,minmax(0,1fr))
+    }
+}
+@media(max-width:360px) {
+    .work-images {
+        grid-template-columns:1fr
+    }
+}
+/* GALERÍAS DE FOTOS GRANDES: mantienen las proporciones originales */
+.works-section .works-grid,.works-section .work-category {
+    display:block!important;
+    width:100%;
+    max-width:1280px;
+    margin:0 auto
+}
+.works-section .gallery-card {
+    margin:0 0 64px!important;
+    padding:24px!important;
+    border-radius:4px
+}
+.works-section .gallery-card>h2 {
+    font-size:clamp(24px,3vw,38px);
+    margin:0 0 16px!important
+}
+.works-section .gallery-subtitle {
+    margin:0 0 22px;
+    color:#c7c7c7
+}
+.works-section .work-images {
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    align-items:start;
+    gap:18px!important;
+    min-height:0!important;
+    padding:0!important;
+    margin:0 0 20px
+}
+.works-section .work-image-button {
+    height:auto!important;
+    aspect-ratio:auto!important;
+    background:#202020;
+    border:0!important;
+    overflow:hidden;
+    line-height:0;
+    cursor:zoom-in
+}
+.works-section .work-image-button img {
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    max-height:none!important;
+    object-fit:contain!important;
+    aspect-ratio:auto!important
+}
+.works-section .work-empty {
+    min-height:100px!important
+}
+.works-section .work-consult {
+    margin-top:12px
+}
+@media(max-width:700px) {
+    .works-section .gallery-card {
+        padding:14px!important;
+        margin-bottom:32px!important
+    }
+    .works-section .work-images {
+        grid-template-columns:1fr!important;
+        gap:14px!important
+    }
+}
+/* GALERÍA DE TRES FOTOGRAFÍAS DENTRO DE CADA CUADRO */
+.works-section .works-grid {
+    display:block!important;
+    max-width:1250px;
+    margin:auto
+}
+.works-section .work-category {
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:32px!important
+}
+.works-section .work-category[hidden] {
+    display:none!important
+}
+.works-section .work-detail-card {
+    width:100%;
+    padding:24px!important;
+    background:#151515!important;
+    border:1px solid #333!important;
+    border-radius:10px;
+    overflow:hidden
+}
+.works-section .editable-gallery {
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:16px!important;
+    margin:0 0 22px!important
+}
+.works-section .editable-gallery .work-image-button {
+    display:block;
+    width:100%;
+    aspect-ratio:4/3!important;
+    overflow:hidden;
+    border:0;
+    border-radius:5px;
+    background:#202020;
+    cursor:zoom-in
+}
+.works-section .editable-gallery .work-image-button[hidden] {
+    display:none!important
+}
+.works-section .editable-gallery img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .3s
+}
+.works-section .editable-gallery .work-image-button:hover img {
+    transform:scale(1.04)
+}
+.works-section .work-detail-card h2 {
+    font-size:clamp(20px,2vw,28px);
+    margin:0 0 14px;
+    color:#fff!important
+}
+.works-section .work-empty {
+    color:#ccc!important;
+    padding:12px 0!important
+}
+.works-section .work-consult {
+    display:inline-flex;
+    margin-top:10px
+}
+@media(max-width:720px) {
+    .works-section .work-detail-card {
+        padding:14px!important
+    }
+    .works-section .editable-gallery {
+        gap:9px!important
+    }
+}
+@media(max-width:430px) {
+    .works-section .editable-gallery {
+        grid-template-columns:repeat(2,minmax(0,1fr))!important
+    }
+}
+/* VERSION SIN CUADROS: galerias abiertas por tipo de trabajo */
+.works-section .work-category {
+    display:flex!important;
+    flex-direction:column;
+    gap:48px!important
+}
+.works-section .work-category[hidden] {
+    display:none!important
+}
+.works-section .work-detail-card,.works-section .gallery-card {
+    display:flex!important;
+    flex-direction:column;
+    width:100%;
+    padding:0!important;
+    margin:0!important;
+    background:transparent!important;
+    border:0!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+    overflow:visible!important
+}
+.works-section .work-detail-card h2 {
+    order:0;
+    font-size:clamp(23px,3vw,36px);
+    margin:0 0 16px!important;
+    padding:0 0 10px;
+    border-bottom:1px solid #333
+}
+.works-section .gallery-subtitle {
+    order:1;
+    margin:0 0 18px!important
+}
+.works-section .editable-gallery {
+    order:2;
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:16px!important;
+    margin:0 0 16px!important
+}
+.works-section .editable-gallery .work-image-button {
+    background:transparent!important;
+    border:0!important;
+    border-radius:0!important;
+    aspect-ratio:4/3!important
+}
+.works-section .editable-gallery img {
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    border-radius:0!important
+}
+.works-section .work-empty {
+    order:3;
+    min-height:0!important;
+    padding:12px 0!important
+}
+.works-section .work-consult {
+    order:4;
+    align-self:flex-start
+}
+@media(max-width:760px) {
+    .works-section .editable-gallery {
+        grid-template-columns:repeat(2,minmax(0,1fr))!important;
+        gap:10px!important
+    }
+    .works-section .work-category {
+        gap:36px!important
+    }
+}
+@media(max-width:480px) {
+    .works-section .editable-gallery {
+        grid-template-columns:1fr!important
+    }
+    .works-section .editable-gallery .work-image-button {
+        aspect-ratio:auto!important
+    }
+    .works-section .editable-gallery img {
+        height:auto!important;
+        max-height:650px;
+        object-fit:contain!important
+    }
+}
+/* Galería interior: fotografías directamente sobre el fondo negro, sin tarjetas. */
+#worksGrid {
+    display:block!important;
+    max-width:1250px;
+    margin:0 auto
+}
+#worksGrid .photos-only-grid:not([hidden]) {
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px;
+    background:transparent!important;
+    border:0!important;
+    padding:0!important;
+    margin:0!important;
+    box-shadow:none!important
+}
+#worksGrid .photos-only-grid[hidden] {
+    display:none!important
+}
+#worksGrid .photo-only-item {
+    display:block;
+    width:100%;
+    padding:0!important;
+    margin:0!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+    cursor:zoom-in;
+    overflow:hidden;
+    border-radius:0!important
+}
+#worksGrid .photo-only-item[hidden] {
+    display:none!important
+}
+#worksGrid .photo-only-item img {
+    display:block;
+    width:100%;
+    height:380px;
+    object-fit:cover;
+    border:0!important;
+    border-radius:0!important;
+    transition:transform .25s ease
+}
+#worksGrid .photo-only-item:hover img {
+    transform:scale(1.025)
+}
+@media(max-width:850px) {
+    #worksGrid .photos-only-grid:not([hidden]) {
+        grid-template-columns:repeat(2,minmax(0,1fr))
+    }
+    #worksGrid .photo-only-item img {
+        height:300px
+    }
+}
+@media(max-width:540px) {
+    #worksGrid .photos-only-grid:not([hidden]) {
+        grid-template-columns:1fr;
+        gap:12px
+    }
+    #worksGrid .photo-only-item img {
+        height:auto;
+        max-height:none;
+        object-fit:contain
+    }
+}
+/* COLLAGE MASONRY: fotos sin tarjetas ni marcos, respetando proporciones */
+#worksGrid .photos-only-grid:not([hidden]) {
+    display:block!important;
+    columns:3 240px!important;
+    column-gap:15px!important;
+    max-width:1250px!important;
+    margin:auto!important
+}
+#worksGrid .photo-only-item {
+    display:block!important;
+    width:100%!important;
+    break-inside:avoid!important;
+    margin:0 0 15px!important;
+    padding:0!important;
+    aspect-ratio:auto!important;
+    height:auto!important;
+    overflow:hidden!important;
+    border:0!important;
+    background:transparent!important;
+    border-radius:0!important;
+    box-shadow:none!important
+}
+#worksGrid .photo-only-item[hidden] {
+    display:none!important
+}
+#worksGrid .photo-only-item img {
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    max-height:none!important;
+    object-fit:contain!important;
+    aspect-ratio:auto!important;
+    border:0!important;
+    border-radius:0!important;
+    transform:none!important
+}
+#worksGrid .photo-only-item:hover img {
+    transform:none!important;
+    filter:brightness(.88)
+}
+@media(max-width:850px) {
+    #worksGrid .photos-only-grid:not([hidden]) {
+        columns:2 190px!important;
+        column-gap:12px!important
+    }
+    #worksGrid .photo-only-item {
+        margin-bottom:12px!important
+    }
+}
+@media(max-width:540px) {
+    #worksGrid .photos-only-grid:not([hidden]) {
+        columns:2 125px!important;
+        column-gap:8px!important
+    }
+    #worksGrid .photo-only-item {
+        margin-bottom:8px!important
+    }
+}
+@media(max-width:350px) {
+    #worksGrid .photos-only-grid:not([hidden]) {
+        columns:1!important
+    }
+}
+
+/* =====================================
+   DECORACIONES DE GRADUACIÓN
+   AJUSTES RESPONSIVE
+===================================== */
+
+/* TABLETS */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .decoraciones.section {
+        padding-top: 145px;
+    }
+
+    .decoraciones .big-title {
+        font-size: clamp(2.3rem, 6vw, 4rem);
+        letter-spacing: -3px;
+        line-height: 1.1;
+    }
+}
+
+/* CELULARES */
+@media (max-width: 768px) {
+    .decoraciones.section {
+        padding-top: 125px;
+    }
+
+    .decoraciones .big-title {
+        font-size: clamp(2rem, 7vw, 3.5rem);
+        letter-spacing: -2px;
+        line-height: 1.15;
+        margin-top: 12px;
+        margin-bottom: 18px;
+    }
+}
+
+/* CELULARES PEQUEÑOS */
+@media (max-width: 430px) {
+    .decoraciones.section {
+        padding-top: 115px;
+    }
+
+    .decoraciones .big-title {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        letter-spacing: -1px;
+        line-height: 1.2;
+    }
+}
